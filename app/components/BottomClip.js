@@ -5,15 +5,15 @@ import center from "../assets/center.png"
 import {FontAwesome5} from '@expo/vector-icons'
 import FolderMenu from '../components/FolderMenu'
 
-function BottomClip({onChangeFolder, folder, folderNames}) {
-    let [opened, setOpened] = useState(false)
+function BottomClip({onChangeFolder, folder, folderNames, opened, setFolderOpened}) {
+
 
     return (
         <>
             <FolderMenu folderNames={folderNames} onChangeFolder={onChangeFolder} opened={opened}/>
             <View style={styles.bottomButtons}>
                 <View style={styles.shrinkBox}>
-                    <TouchableNativeFeedback onPress={() => opened ? setOpened(false) : setOpened(true)}>
+                    <TouchableNativeFeedback onPress={() => opened ? setFolderOpened(false) : setFolderOpened(true)}>
                         <View style={styles.folderButton}>
                             <FontAwesome5 style={styles.folderIcon} name={folder.icon} size={20} color={colors.secondary}/>
                             <Text style={styles.folderText}>{folder.name}</Text>

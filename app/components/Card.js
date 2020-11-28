@@ -12,7 +12,7 @@ function Card({title, subtitle, id, name, time, text, type, avatar,more, hasFile
                 <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(colors.primary, false, 210)}
                                          onPress={onPress}>
                     <View>
-                        <Text style={styles.about}> {name} - {new Date(time).toLocaleDateString()}</Text>
+                        <Text style={styles.about}> {name} - {new Date(time).toLocaleDateString( "ru-RU")} - {new Date(time).toLocaleTimeString()}</Text>
                         <View style={styles.detailsContainer}>
                             <Text style={styles.title} numberOfLines={1}>{title}</Text>
                             {/*<Text style={styles.subTitle}>{subtitle}</Text>*/}
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         margin: 5,
     },
     detailsContainer: {
-        padding: 10
+        paddingHorizontal: 10
     },
     avatar: {
         position: "absolute",
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
         top: -20
     },
     title: {
-        marginBottom: 7,
-        fontSize: 32,
+        marginBottom: 0,
+        fontSize: 16,
         color: colors.primary,
         fontWeight: "bold"
     },

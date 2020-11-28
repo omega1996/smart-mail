@@ -23,14 +23,13 @@ function CardReplyAction({onReplyAll, onForward, onSeen, onFastForward}) {
                 </View>
             </View>
             <View style={styles.replyBottom}>
-                <FontAwesome5 name={'reply'} color={colors.opposite} style={{position: "absolute"}} size={20}/>
+                <FontAwesome5 name={'reply'} color={colors.opposite} style={{position: "absolute", top:-20}} size={20}/>
                 <View style={styles.replyColumn}>
                     <View style={styles.fastRepliesContainer}>
                         <Text numberOfLines={1} style={styles.fastReplies}>Ок, спасибо</Text>
-                        <Text numberOfLines={1} style={styles.fastReplies}>До встречи!</Text>
+                        <Text numberOfLines={1} style={styles.fastReplies}>Утверждаю</Text>
                         <Text numberOfLines={1} style={styles.fastReplies}>Вас понял!</Text>
-                        <Text numberOfLines={1} style={styles.fastReplies}>Хорошо, до связи</Text>
-                        <Text numberOfLines={1} style={styles.fastReplies}>Ок, спасибо</Text>
+
                     </View>
 
                 </View>
@@ -52,8 +51,8 @@ const styles = StyleSheet.create({
     fastReplies: {
         backgroundColor: colors.secondary,
         borderRadius: 5,
-        paddingHorizontal: 4,
-        width: 65,
+        height:22,
+        paddingHorizontal: 8,
         margin: 2.5
     },
     replyColumn: {

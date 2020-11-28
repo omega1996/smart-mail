@@ -1,34 +1,38 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, FlatList, Text, Platform, StatusBar} from "react-native";
 import colors from "../config/colors";
 import Card from "../components/Card";
 import CardReplyAction from "../components/CardReplyAction";
 import CardArchiveAction from "../components/CardArchiveAction";
 import {useNavigation} from "@react-navigation/native"
-// import initialMails from "../assets/messages"
-// import initialMails from "../assets/data.json"
+
 
 function FeedScreen({folder, initialMails}) {
     const navigation = useNavigation()
-    const foldered = initialMails.filter(fo => fo.title === folder.key)[0].thems;
-    const [mails, setMails] = useState(foldered);
+    const foldered = initialMails.filter(fo => fo.title === folder.key)[0];
+    const [mails, setMails] = useState(foldered.thems);
     const [refreshing, setRefreshing] = useState(false);
 
     const handleArchive = mail => {
         // архивировать на сервере
         // удалить из списка
-        setMails(mails.filter(m => m.message_id !== mail.message_id))
+        setMails(mails.filter(m => m.id !== mail.id))
     };
     const onClickChain = (item) => {
         navigation.navigate("Chain", {chain: item})
     };
 
     const refreshMails = () => {
-        setMails(foldered)
+        setMails(foldered.thems)
     };
+
+    useEffect(()=>{
+        setMails(foldered.thems)
+    })
     return (
         <View style={styles.container}>
             <View style={styles.feedBackground}>
+                <Text style={{alignSelf:"flex-end"}}>0/{foldered.thems_count}</Text>
                 <FlatList
                     data={mails}
                     // style={styles.mailList}

@@ -8,14 +8,29 @@ function FolderMenu({opened, onChangeFolder, folderNames}) {
         <View style={[styles.menu, opened && styles.opened]}>
             <FlatList
                 data={folderNames}
-                keyExtractor={folder => folder.key.toString()}
-                renderItem={({item}) =>
-                    <TouchableNativeFeedback onPress={()=>onChangeFolder(item)}>
-                        <View style={styles.chooseFolder}>
-                            <FontAwesome5 size={25} style={{marginLeft: 10}} name={item.icon}/>
-                            <Text style={styles.chooseFolderText}>{item.name}</Text>
-                        </View>
-                    </TouchableNativeFeedback>
+                keyExtractor={folder => folder.id.toString()}
+                ListFooterComponent={() => (
+                    <View style={{width: '100%', height: 60, backgroundColor: "transparent"}}/>
+                )}
+                renderItem={({item, index}) =>
+                    <View>
+                        {index === 0 ? <Text style={styles.chooseFolderText}>Важные:</Text> :
+                            index === 2 ? <Text style={styles.chooseFolderText}>Внешние письма:</Text> :
+                                index === 4 ? <Text style={styles.chooseFolderText}>Неважные:</Text> :
+                                    index === 6 ? <Text style={styles.chooseFolderText}>Уведомления:</Text> :
+                                        index === 8 ? <Text style={styles.chooseFolderText}>Массовая рассылка:</Text> :
+                                            index === 10 ? <Text style={styles.chooseFolderText}>Встречи:</Text> :
+                                                <View></View>
+
+                        }
+                        <TouchableNativeFeedback onPress={() => onChangeFolder(item)}>
+                            <View style={styles.chooseFolder}>
+
+                                {/*<FontAwesome5 size={25} style={{marginLeft: 10}} name={item.icon}/>*/}
+                                <Text style={styles.chooseFolderText}>{item.name}</Text>
+                                {/*<Text style={styles.chooseFolderText}>{item.thems_count}</Text>*/}
+                            </View>
+                        </TouchableNativeFeedback></View>
                 }
             >
             </FlatList>
@@ -26,6 +41,7 @@ function FolderMenu({opened, onChangeFolder, folderNames}) {
 const styles = StyleSheet.create({
     chooseFolder: {
         margin: 5,
+        marginHorizontal:25,
         padding: 5,
         borderRadius: 10,
         height: 40,
@@ -34,7 +50,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.secondary
     },
     chooseFolderText: {
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: 'bold',
         marginLeft: 10
     },
