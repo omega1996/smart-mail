@@ -1,31 +1,50 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, Image, Text, ImageBackground, TouchableNativeFeedback} from "react-native";
 import colors from "../config/colors";
 import center from "../assets/center.png"
 import {FontAwesome5} from '@expo/vector-icons'
+import FolderMenu from '../components/FolderMenu'
 
-function BottomClip(props) {
+function BottomClip({onChangeFolder, folder, folderNames}) {
+    let [opened, setOpened] = useState(false)
+
     return (
-        <View style={styles.bottomButtons}>
-            <View style={styles.shrinkBox}>
-                <FontAwesome5 style={styles.folderIcon} name="folder" size={30} color={colors.secondary}/>
-                <Text style={styles.folderText}>Папка</Text>
-            </View>
-            <ImageBackground style={styles.holeImage} source={center}>
-                <View style={styles.mainButton}>
-                    <TouchableNativeFeedback>
-                        <FontAwesome5 name="pen" size={25} color={colors.black}/>
+        <>
+            <FolderMenu folderNames={folderNames} onChangeFolder={onChangeFolder} opened={opened}/>
+            <View style={styles.bottomButtons}>
+                <View style={styles.shrinkBox}>
+                    <TouchableNativeFeedback onPress={() => opened ? setOpened(false) : setOpened(true)}>
+                        <View style={styles.folderButton}>
+                            <FontAwesome5 style={styles.folderIcon} name={folder.icon} size={20} color={colors.secondary}/>
+                            <Text style={styles.folderText}>{folder.name}</Text>
+                        </View>
                     </TouchableNativeFeedback>
                 </View>
-            </ImageBackground>
-            <View style={[styles.shrinkBox, {flexDirection:'row-reverse'} ]}>
-                <FontAwesome5 style={styles.folderIcon} name={'search'} size={25} color={colors.secondary} />
+                <ImageBackground style={styles.holeImage} source={center}>
+                    {!opened && <View style={styles.mainButton}>
+                        <TouchableNativeFeedback>
+                            <FontAwesome5 name="pen" size={25} color={colors.black}/>
+                        </TouchableNativeFeedback>
+                    </View>}
+                </ImageBackground>
+                <View style={[styles.shrinkBox, {flexDirection: 'row-reverse'}]}>
+                    <FontAwesome5 style={styles.folderIcon} name={'search'} size={25} color={colors.secondary}/>
+                </View>
             </View>
-        </View>
+
+        </>
     );
 }
 
 const styles = StyleSheet.create({
+    folderButton: {
+        marginLeft: 10,
+        height: 50,
+        width: 150,
+        borderRadius: 20,
+        flexDirection: "row",
+        alignItems: "center"
+    },
     bottomButtons: {
         height: 60,
         position: "absolute",
@@ -36,10 +55,10 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent"
     },
     folderIcon: {
-        margin: 10
+        marginRight: 5
     },
-    folderText:{
-        fontSize: 20,
+    folderText: {
+        fontSize: 18,
         fontWeight: '700',
         color: colors.secondary
     },

@@ -2,25 +2,34 @@ import React from 'react';
 import {StyleSheet, View, Text, Image, TouchableNativeFeedback} from "react-native";
 import colors from "../config/colors";
 import {AntDesign} from "@expo/vector-icons";
+import Swipeable from "react-native-gesture-handler/Swipeable"
 
-function Card({title, subtitle, name, time, text, type, avatar, hasFiles, onPress}) {
+function Card({title, subtitle, id, name, time, text, type, avatar,more, hasFiles, onPress, renderRightActions, renderLeftActions}) {
+
     return (
-        <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(colors.primary, true, 200)}
-                                 onPress={onPress}>
+        <Swipeable renderRightActions={renderRightActions} renderLeftActions={renderLeftActions}>
             <View style={styles.card}>
-
-                <Text style={styles.about}> {name} - {new Date(time).toLocaleDateString()}</Text>
-                <View style={styles.detailsContainer}>
-                    <Text style={styles.title} numberOfLines={1}>{title}</Text>
-                    {/*<Text style={styles.subTitle}>{subtitle}</Text>*/}
-                    {/*<Image source={avatar} style={styles.avatar}/>*/}
-                </View>
-                <View style={styles.preview}>
-                    <Text style={styles.previewText} numberOfLines={5}>{text}</Text>
-                </View>
-                {hasFiles && <AntDesign style={styles.attach} name="paperclip" size={22} color={colors.primary}/>}
+                <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(colors.primary, false, 210)}
+                                         onPress={onPress}>
+                    <View>
+                        <Text style={styles.about}> {name} - {new Date(time).toLocaleDateString()}</Text>
+                        <View style={styles.detailsContainer}>
+                            <Text style={styles.title} numberOfLines={1}>{title}</Text>
+                            {/*<Text style={styles.subTitle}>{subtitle}</Text>*/}
+                            {/*<Image source={avatar} style={styles.avatar}/>*/}
+                        </View>
+                        <View style={styles.preview}>
+                            <Text style={styles.previewText} numberOfLines={5}>{text}</Text>
+                        </View>
+                        <View style={{height:20, flexDirection:"row", justifyContent: "center"}}>
+                            <Text>Писем в цепочке: {more}</Text>
+                        </View>
+                        {hasFiles &&
+                        <AntDesign style={styles.attach} name="paperclip" size={22} color={colors.primary}/>}
+                    </View>
+                </TouchableNativeFeedback>
             </View>
-        </TouchableNativeFeedback>
+        </Swipeable>
     );
 }
 
@@ -37,7 +46,10 @@ const styles = StyleSheet.create({
         bottom: 5
     },
     preview: {
-        backgroundColor: "lightblue",
+        borderTopColor: colors.secondary,
+        borderTopWidth: 1,
+        borderBottomColor: colors.secondary,
+        borderBottomWidth: 1,
         height: 100,
         alignItems: "center",
         justifyContent: "center"
