@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
         borderBottomColor: colors.secondary,
         borderBottomWidth: 1,
         height: 100,
-        alignItems: "center",
-        justifyContent: "center"
+        alignItems: "flex-start",
+        justifyContent: "flex-start"
     },
     previewText: {
         padding: 10

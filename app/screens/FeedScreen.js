@@ -42,7 +42,7 @@ function FeedScreen({folder, initialMails}) {
                             title={item.title}
                             name={item.last_sender_name}
                             time={item.date}
-                            text={item.letters[0].text}
+                            text={item.summary}
                             onPress={() => {
                                 onClickChain(item)
                             }}
