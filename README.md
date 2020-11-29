@@ -17,6 +17,7 @@
 - `git clone -b master https://github.com/omega1996/smart-mail` Склонировать репозиторий
 - `cd smart-mail` перейти в нужную директорию
 - `npm install` Установить пакеты
+- `npm install expo-cli --global` - Установить expo-cli
 - `expo start` Запустить сервер
 
 - [Скачать приложение Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=ru&gl=US)
