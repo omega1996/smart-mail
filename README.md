@@ -18,7 +18,9 @@
 - `cd smart-mail` перейти в нужную директорию
 - `npm install` Установить пакеты
 - `npm install expo-cli --global` - Установить expo-cli, на Linux запускать с `sudo`
-- `expo start` Запустить сервер. Для Linux: если после запуска браузера появилась ошибка выполните команду `sudo sysctl -w fs.inotify.max_user_watches=10000` и перезапустите expo
+- `expo start` Запустить сервер. 
+
+Для Linux: если после запуска браузера появилась ошибка выполните команду `sudo sysctl -w fs.inotify.max_user_watches=10000` и перезапустите expo
 
 - [Скачать приложение Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=ru&gl=US)
 - Выбрать в приложении "Scan QR Code" и направить камеру на QR код в консоли
