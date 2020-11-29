@@ -21,3 +21,6 @@
 
 - [Скачать приложение Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=ru&gl=US)
 - Выбрать в приложении "Scan QR Code" и направить камеру на QR код в консоли
+
+### дополнительные материалы 
+[Презентация](https://docs.google.com/presentation/d/1jr-MZ8ybg28eDwkssPqA_3Vkyvwgm8F1NE_uIv3efI8/edit?usp=sharing)
