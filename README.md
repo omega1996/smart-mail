@@ -24,4 +24,4 @@
 - Выбрать в приложении "Scan QR Code" и направить камеру на QR код в консоли
 
 ### дополнительные материалы 
-[Презентация](https://docs.google.com/presentation/d/1jr-MZ8ybg28eDwkssPqA_3Vkyvwgm8F1NE_uIv3efI8/edit?usp=sharing)
+[Презентация](https://docs.google.com/presentation/d/e/2PACX-1vSAIFZ8lr_hbvKDwCmLGh0WOoPzorPeLA8FnK9_7AiBknykwRCgq_rDgRP_-JU6FObLdwTWL8GZ29-F/pub?start=false&loop=false&delayms=60000)
