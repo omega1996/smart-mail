@@ -17,11 +17,12 @@
 - `git clone -b master https://github.com/omega1996/smart-mail` Склонировать репозиторий
 - `cd smart-mail` перейти в нужную директорию
 - `npm install` Установить пакеты
-- `npm install expo-cli --global` - Установить expo-cli
-- `expo start` Запустить сервер
+- `npm install expo-cli --global` - Установить expo-cli, на Linux запускать с `sudo`
+- `expo start` Запустить сервер. Для Linux: если после запуска браузера появилась ошибка выполните команду `sudo sysctl -w fs.inotify.max_user_watches=10000` и перезапустите expo
 
 - [Скачать приложение Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=ru&gl=US)
 - Выбрать в приложении "Scan QR Code" и направить камеру на QR код в консоли
+
 
 ### дополнительные материалы 
 [Презентация](https://docs.google.com/presentation/d/e/2PACX-1vSAIFZ8lr_hbvKDwCmLGh0WOoPzorPeLA8FnK9_7AiBknykwRCgq_rDgRP_-JU6FObLdwTWL8GZ29-F/pub?start=false&loop=false&delayms=60000)
